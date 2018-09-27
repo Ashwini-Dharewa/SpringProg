@@ -1,0 +1,146 @@
+package com.lazydays.flight;
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.mongodb.DBCursor;
+
+
+
+@RestController
+
+	public class FlightController 
+	{
+	@Autowired
+	private FlightService flightRepo;
+	
+	 @RequestMapping("/")
+	    public ModelAndView home(Map<String, Object> model)
+	    {
+			ModelAndView mav= new ModelAndView ("index");
+			return mav;
+		}
+	 @RequestMapping("/gh")
+	    public String home()
+	    {
+			return flightRepo.findAll().toString();
+		}
+	    @RequestMapping(value = "/Flight", method = RequestMethod.GET)
+		   public ModelAndView show() {
+		      return new ModelAndView("Flight");
+		   }
+	    
+	    
+	    @RequestMapping(value = "/Flight", method = RequestMethod.POST)
+
+	    public ModelAndView journeyflight(Model model,@ModelAttribute("source")String source,
+				   @ModelAttribute("destination")String destination,@ModelAttribute("departDate")String departDate,
+				   @ModelAttribute("returnDate")String returnDate,
+				   @ModelAttribute("passengerNo")int passengerNo,@ModelAttribute("flightclass")String fclass,FlightPojo flight,BindingResult result,Map<String,Object> model1)
+	    	{
+	    			double fare=0;
+	    			String at=null,dt=null,cmp=null;
+	    			  List<FlightPojo> flights=new ArrayList<FlightPojo>();
+	    			  List<FlightPojo> flist=new ArrayList<FlightPojo>();
+	    			  flist=flightRepo.findAll();
+	    			  //Iterator i=flist.iterator();
+	    			
+	    			for(int i=1;i<=flist.size();i++)
+	    			{
+	    				FlightPojo flightObj=flightRepo.findByFlightID(i);
+	    				if((flightObj.getSource().equals(source)) && (flightObj.getDestination().equals(destination)) && (flightObj.getDate().equals(departDate)))
+	    				{
+	    					if(fclass.equals("Economy") && flightObj.getEconomySeats()>=passengerNo)
+	    					{
+	    						fare=flightObj.getEconomyFare();
+	   	    				 at=flightObj.getArrivalTime();
+	   	    				dt=flightObj.getDepartureTime();
+	   	    				cmp=flightObj.getCompany();
+	    					}
+	    					else if(fclass.equals("Business") && flightObj.getBusinessSeats()>=passengerNo)
+	    					{
+	    						fare=flightObj.getBusinessFare();
+	   	    				 at=flightObj.getArrivalTime();
+	   	    				dt=flightObj.getDepartureTime();
+	   	    				cmp=flightObj.getCompany();
+	    					}
+	    				}
+	    				if(fare>0)
+	    				{
+	    					flights.add(new FlightPojo(cmp,dt,at,fare))
+	    				}
+	    				
+	    			}
+	    			
+
+
+	    	/*if(fclass.equals("Economy"))
+	    	{
+	    		System.out.println(flightRepo.findBySource(source).getCompany());
+	    	}*/
+	    			  
+	    			 /* DBCursor cursor = flist.find();
+
+                      while(cursor.hasNext()) {
+
+                                      cursor.next();
+
+	    	if(fclass.equals("Economy"))
+	    	{
+	    		System.out.println(flightRepo.findBySource(source).getCompany());
+	    		if(flightRepo.findBySource(source)!=null && flightRepo.findByDestination(destination)!=null)
+	    		{
+	    			if((flightRepo.findByDate(departDate).getEconomySeats())>=passengerNo)
+	    			{
+	    				fare=flightRepo.findByDate(departDate).getEconomyFare();
+	    				 at=flightRepo.findByDate(departDate).getArrivalTime();
+	    				dt=flightRepo.findByDate(departDate).getDepartureTime();
+	    				cmp=flightRepo.findByDate(departDate).getCompany();
+	    			}
+	    		}
+	    	}
+	    	else
+	    	{
+	    		if(flightRepo.findBySource(source)!=null && flightRepo.findByDestination(destination)!=null)
+	    		{
+	    			if((flightRepo.findByDate(departDate).getBusinessSeats())>=passengerNo)
+	    			{
+	    				fare=flightRepo.findByDate(departDate).getBusinessFare();
+	    				 at=flightRepo.findByDate(departDate).getArrivalTime();
+		    				dt=flightRepo.findByDate(departDate).getDepartureTime();
+		    				cmp=flightRepo.findByDate(departDate).getCompany();
+	    			}
+	    		}
+	    	}
+	    			  
+	    	if(fare>0)
+	    		{
+	    			flights.add(new FlightPojo(cmp,dt,at,fare));
+	    			System.out.println(flights.toString());
+	    			
+	    		}
+	    	i.next();
+	    	}*/
+	    			  return new ModelAndView("Flight");
+	    	}
+	    
+	    
+	}

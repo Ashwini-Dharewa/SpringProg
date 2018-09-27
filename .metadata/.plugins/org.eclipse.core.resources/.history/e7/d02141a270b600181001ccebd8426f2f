@@ -1,0 +1,22 @@
+package com.capgemini.flightSearch;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FlightService {
+	
+	       @Autowired
+	       private FlightDao dao;
+	       	       
+	       public FlightPojo findBySource(String source) {
+	              // TODO Auto-generated method stub
+	              return dao.findBySource(source);
+	       }
+
+
+	
+	
+	
+
+}

@@ -1,0 +1,5 @@
+package com.capgemini.lazydays.main.mongo;
+
+public interface UserRepository {
+
+}

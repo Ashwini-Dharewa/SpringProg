@@ -1,0 +1,5 @@
+package com.capgemini.lazydays.main;
+
+public class UserPojo {
+
+}

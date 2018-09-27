@@ -1,0 +1,8 @@
+
+
+server.port=9080
+spring.data.mongodb.uri=mongodb://localhost:27017/flightlist
+spring.mvc.view.prefix=/
+spring.mvc.view.suffix=.jsp
+
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration

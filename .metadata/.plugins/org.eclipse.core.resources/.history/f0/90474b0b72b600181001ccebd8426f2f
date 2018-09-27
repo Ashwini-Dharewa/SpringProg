@@ -1,0 +1,13 @@
+package com.capgemini.flightSearch;
+
+
+
+public class FlightMain {
+
+	public static void main(String[] args) {
+		FlightService ob=new FlightService(null);
+		System.out.println(ob.findBySource("Kolkata").getCompany());
+		
+	}
+
+}

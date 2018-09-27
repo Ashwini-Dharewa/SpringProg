@@ -1,0 +1,40 @@
+package com.capgemini.flightSearch;
+import java.sql.*;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.io.*;  
+@RestController
+public class InsertImage {  
+@RequestMapping("/ret")
+public ModelAndView retrieve(Model model)
+{
+
+	/*try{  
+		Class.forName("oracle.jdbc.driver.OracleDriver");  
+		Connection con=DriverManager.getConnection(  
+		"jdbc:oracle:thin:@localhost:1521:xe","Ashwini","angshuman");  
+		      
+		PreparedStatement ps=con.prepareStatement("select * from hotelimage");  
+		ResultSet rs=ps.executeQuery();  
+		if(rs.next()){//now on 1st row  
+		   String id=rs.getString(1);          
+		Blob b=rs.getBlob(2);//2 means 2nd column data  
+		byte barr[]=b.getBytes(1,(int)b.length());//1 means first image  
+		String s="d:\\image\\"+id+".jpg";
+		              
+		FileOutputStream fout=new FileOutputStream(s);  
+		fout.write(barr);  
+		       model.addAttribute("img", fout);       
+		fout.close();  
+		}//end of if  
+		System.out.println("ok");  
+		              
+		con.close();  
+		}catch (Exception e) {e.printStackTrace();  }  */
+ return new ModelAndView("Display");
+}
+}  

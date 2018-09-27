@@ -1,0 +1,23 @@
+package com.capgemini.hotelSearch;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class HotelSearchTest {
+
+	HotelService hotelService=new HotelService();
+	
+    @Test
+    public void testFindByCity() 
+    {
+                    String source="Kolkata";
+                    assertEquals(true, hotelService.findByCity(source,1));
+    }
+
+    @Test
+    public void testFindByDate() 
+    {
+                    String date="12/12/2018";
+                    int rooms=34;
+                    assertEquals(true, hotelService.findByDate(date,rooms,1));
+    }
+}

@@ -1,0 +1,36 @@
+package com.capgemini.flightSearch;
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class FlightServiceTest 
+{
+                FlightService flightService=new FlightService();
+                @Test
+                public void testFindBySource() 
+                {
+                                String source="Kolkata";
+                                assertEquals(true, flightService.findBySource(source,1));
+                }
+
+                @Test
+                public void testFindByDestination() 
+                {
+                                String destination="Bangalore";
+                                assertEquals(true, flightService.findByDestination(destination,1));
+                }
+
+
+                @Test
+                public void testFindByClass() 
+                {
+                                String cType="Economy";
+                                String date="09/12/2018";
+                                int seats=5;
+                                Assert.assertEquals(49085,(int)flightService.findByClass(cType,seats,date,1));
+                }
+
+
+}

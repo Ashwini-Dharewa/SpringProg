@@ -1,0 +1,20 @@
+package com.lazydays.flight;
+
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+
+public interface FlightRepository extends MongoRepository<FlightPojo, String> 
+{
+   public FlightPojo findBySource(String source);
+       public FlightPojo findByDestination(String destination);
+       public FlightPojo findByDate(String date);
+       public List<FlightPojo> findAll();
+
+	  // public UserPojo create(String userId, String userName,String userMail, String phone,String password);
+       
+
+}

@@ -1,0 +1,30 @@
+package com.lazydays.flight;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FlightService {
+  @Autowired
+      private FlightRepository repo;
+  
+  public FlightPojo findBySource(String source)
+  {
+	return repo.findBySource(source);  
+  }
+  public FlightPojo findByDestination(String destination)
+  {
+	  return repo.findByDestination(destination);
+  }
+  public FlightPojo findByDate(String date)
+  {
+	  return repo.findByDate(date);
+  }
+  public List<FlightPojo> findAll()
+	{
+       return repo.findAll();
+     }
+  	
+}

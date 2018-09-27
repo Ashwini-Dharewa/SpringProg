@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;lazy-days/src/main/java/com/capgemini/flightSearch/FlightService.java&apos; to &apos;FlightServiceImpl.java&apos;" description="Rename resource &apos;FlightService.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/capgemini/flightSearch/FlightService.java" name="FlightServiceImpl.java" stamp="1536736998046" updateReferences="true"/>
+</session>

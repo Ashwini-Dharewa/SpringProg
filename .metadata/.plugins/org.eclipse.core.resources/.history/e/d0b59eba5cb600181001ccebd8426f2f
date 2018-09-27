@@ -1,0 +1,8 @@
+package com.capgemini.flightSearch;
+
+public interface FlightService {
+	
+	
+	
+
+}

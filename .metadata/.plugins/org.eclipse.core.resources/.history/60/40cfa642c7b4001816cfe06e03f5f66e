@@ -1,0 +1,17 @@
+package com.capgemini.flightSearch;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FlightMain {
+
+	public static void main(String[] args) {
+		FlightService ob=new FlightService();
+		List<FlightPojo> fl=new ArrayList<FlightPojo>();
+	   	fl=ob.availableFlights("Kolkata","Bangalore","09/12/2018","Business",5);
+		System.out.println(fl);
+		
+	}
+
+}

@@ -1,0 +1,39 @@
+package com.capgemini.lazydays.main.mongo;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+public class UserController {
+	
+	@RestController
+	@RequestMapping("/rest")
+		public class LoginRegisterController 
+		{
+		@Autowired
+		private UserService userRepo;
+		
+		@GetMapping("/{password}")
+		
+			public String get(@PathVariable("password") String password)
+			{
+				return userRepo.findByPassword(password).toString();
+			//return password;
+			}
+		
+		@GetMapping("/all")
+		
+		public List<UserPojo> getAll()
+		{
+			return userRepo.findAlluser();
+		//return password;
+		}
+		
+		
+		}
+
+}

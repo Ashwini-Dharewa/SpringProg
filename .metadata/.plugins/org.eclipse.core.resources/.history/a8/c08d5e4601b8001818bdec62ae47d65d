@@ -1,0 +1,5 @@
+spring.application.name=DatabaseAPIGateway
+security.basic.enable: false   
+management.security.enabled: false
+zuul.routes.home.serviceId=DB-Producer
+zuul.host.socket-timeout-millis=30000

@@ -1,0 +1,26 @@
+package com.capgemini.lazydays.main;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImplementation 
+{
+	
+	private UserRepository userRepository;
+	@Autowired
+	public UserServiceImplementation()
+	{
+		this.userRepository=userRepository;
+	}
+	public UserPojo findByUserMailAndPassword(String userMail,String password)
+	{
+		return userRepository.findByUserMailAndPassword(userMail, password);
+	}
+	public UserPojo getByUserId(String userId)
+	{
+		//return userRepository.findByUserMail(userMail);
+        return userRepository.getByUserId(userId);
+	}
+
+}

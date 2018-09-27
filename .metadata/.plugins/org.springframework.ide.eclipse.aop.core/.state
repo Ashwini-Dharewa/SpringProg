@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="eurekaServer"/>
+<aop-project name="lazy-daysOld"/>
+<aop-project name="EmployeeConsumer"/>
+<aop-project name="LazyDaysLoginRegister"/>
+<aop-project name="CopyService"/>
+<aop-project name="courseapi"/>
+<aop-project name="swaggerDemo"/>
+<aop-project name="stock-service"/>
+<aop-project name="ZuulService"/>
+<aop-project name="lazy-days"/>
+<aop-project name="eureka-service"/>
+<aop-project name="databaseService"/>
+<aop-project name="Flights"/>
+<aop-project name="hellocontroller1"/>
+<aop-project name="databaseClient"/>
+<aop-project name="EmployeeProducer">
+<aspect-definition advice-class-name="com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect" advice-method-name="methodsAnnotatedWithHystrixCommand(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="-1" aspect-name="hystrixCommandAspect" aspect-start-line-number="-1" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/EmployeeProducer/src/main/java/com/capgemini/EmployeeProducer/EmployeeProducerApplication.java" pointcut-expression="hystrixCommandAnnotationPointcut() || hystrixCollapserAnnotationPointcut()" proxy-target-class="true">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:EmployeeProducer|3:java:com.capgemini.EmployeeProducer.EmployeeProducerApplication|8:testController:10" bean-file="/EmployeeProducer/src/main/java/com/capgemini/EmployeeProducer/TestController.java" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/EmployeeProducer/src/main/java/com/capgemini/EmployeeProducer/EmployeeProducerApplication.java" source="=EmployeeProducer/C:\/Users\/adharewa\/.m2\/repository\/com\/netflix\/hystrix\/hystrix-javanica\/1.5.12\/hystrix-javanica-1.5.12.jar&lt;com.netflix.hystrix.contrib.javanica.aop.aspectj(HystrixCommandAspect.class[HystrixCommandAspect~methodsAnnotatedWithHystrixCommand~Lorg.aspectj.lang.ProceedingJoinPoint;" source-start-line="-1" target="=EmployeeProducer/src\/main\/java&lt;com.capgemini.EmployeeProducer{TestController.java[TestController~firstPage" target-start-line="14"/>
+</aspect-definition>
+</aop-project>
+</aop-reference-model>

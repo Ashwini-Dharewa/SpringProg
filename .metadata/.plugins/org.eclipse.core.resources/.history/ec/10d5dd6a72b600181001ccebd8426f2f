@@ -1,0 +1,16 @@
+package com.capgemini.flightSearch;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class FlightMain {
+
+	@Autowired
+	static FlightService ob;
+	
+	public static void main(String[] args) {
+		
+		System.out.println(ob.findBySource("Kolkata").getCompany());
+		
+	}
+
+}

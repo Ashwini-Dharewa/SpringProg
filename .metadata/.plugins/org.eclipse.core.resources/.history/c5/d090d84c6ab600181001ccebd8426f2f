@@ -1,0 +1,21 @@
+package com.capgemini.flightSearch;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class FlightMain {
+
+	public static void main(String[] args) {
+		
+		@Autowired
+		FlightService flightService;
+		/*List<FlightPojo> fl=new ArrayList<FlightPojo>();
+	   	fl=ob.availableFlights("Kolkata","Bangalore","09/12/2018","Business",5);*/
+		System.out.println(ob.findBySource("Kolkata"));
+		
+	}
+
+}

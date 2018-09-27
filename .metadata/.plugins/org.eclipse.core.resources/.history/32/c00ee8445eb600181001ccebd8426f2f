@@ -1,0 +1,10 @@
+package com.capgemini.flightSearch;
+
+public interface FlightService {
+	
+	FlightPojo getBySource(String source);
+	
+	
+	
+
+}
